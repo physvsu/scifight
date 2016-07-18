@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-
 from .settings_secret import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'scifight.scifight',
+    'scifight',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -37,9 +36,9 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'scifight.urls'
+ROOT_URLCONF = 'scifight_proj.urls'
 
-WSGI_APPLICATION = 'scifight.wsgi.application'
+WSGI_APPLICATION = 'scifight_proj.wsgi.application'
 
 TEMPLATES = [
     {
@@ -90,3 +89,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
