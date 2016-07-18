@@ -1,4 +1,9 @@
 # Byte-compiled / optimized / DLL files
+
+/static
+/scifight_proj/settings_secret.py
+*.dylib
+
 __pycache__/
 *.py[cod]
 *$py.class

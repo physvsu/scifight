@@ -98,7 +98,7 @@ class FightStage(models.Model):
     opponent    = models.ForeignKey(Participant, related_name="opponent")
     reviewer    = models.ForeignKey(Participant, related_name="reviewer", null=True, blank=True)
     refusals    = models.ManyToManyField(Problem, related_name="refusals")
-    points      = models.ManyToManyField(JuryPoints)
+    points      = models.ManyToManyField(JuryPoints, null=True, blank=True)
 
 
 class Fight(models.Model):
@@ -109,7 +109,7 @@ class Fight(models.Model):
     status      = models.PositiveSmallIntegerField(default=0)
     team1       = models.ForeignKey(Team, related_name="team1")
     team2       = models.ForeignKey(Team, related_name="team2")
-    team3       = models.ForeignKey(Team, related_name="team3", null=True)
-    team4       = models.ForeignKey(Team, related_name="team4", null=True)
+    team3       = models.ForeignKey(Team, related_name="team3", null=True, blank=True)
+    team4       = models.ForeignKey(Team, related_name="team4", null=True, blank=True)
     juries      = models.ManyToManyField(Jury)
     stages      = models.ManyToManyField(FightStage)
