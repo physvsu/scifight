@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'scifight',
+    'admin_reorder',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -34,6 +35,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder'
 ]
 
 ROOT_URLCONF = 'scifight_proj.urls'
@@ -90,3 +92,35 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+ADMIN_REORDER = (
+    'sites',
+    {'app': 'scifight', 'models':
+        (
+            'scifight.Team',
+            'scifight.Participant',
+            'scifight.Leader',
+            'scifight.Room',
+            'scifight.Problem',
+
+        )
+     },
+    {'app':'scifight', 'label': 'Fight', 'models':
+        (
+            'scifight.Fight',
+            'scifight.FightStage',
+            'scifight.Jury',
+            'scifight.JuryPoints',
+        )
+    },
+    {'app': 'scifight', 'label': 'Origin', 'models':
+        (
+            'scifight.TeamOrigin',
+            'scifight.CommonOrigin',
+        )
+     },
+    {'app': 'auth', 'models':
+        ('auth.User', 'auth.Group')
+     },
+)
+
