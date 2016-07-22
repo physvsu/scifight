@@ -154,7 +154,7 @@ class FightStage(models.Model):
 
         guys = [self.reporter, self.opponent, self.reviewer]
         guys_uniq = set(guys) - {None}
-        if len(guys_uniq) < 2 or len(guys_uniq) + guys.count(None) != 4:
+        if len(guys_uniq) < 2 or len(guys_uniq) + guys.count(None) != 3:
             raise exceptions.ValidationError(
                 "Single person is assigned for two or more roles")
 
