@@ -16,6 +16,14 @@ GRADE_LENGTH = 20
     hold a number plus possible brief one-word explanation. """
 
 
+class Tournament(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class TeamOrigin(models.Model):
     name = models.CharField(max_length=NAME_LENGTH)
 
@@ -27,6 +35,7 @@ class TeamOrigin(models.Model):
 
 
 class Team(models.Model):
+    tournament = models.ForeignKey(Tournament)
     name = models.CharField(max_length=NAME_LENGTH)
     description = models.TextField(max_length=TEXT_LENGTH, blank=True)
     origin = models.ForeignKey(TeamOrigin, null=True, blank=True)
@@ -103,6 +112,7 @@ class Fight(models.Model):
         (COMPLETED,   "Completed")
     ]
 
+    tournament = models.ForeignKey(Tournament)
     room        = models.ForeignKey(Room)
     fight_num   = models.IntegerField()
     start_time  = models.DateTimeField(null=True, blank=True)

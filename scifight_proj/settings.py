@@ -95,6 +95,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMIN_REORDER = ('sites',
     dict(app='scifight',
+         label='Tournaments',
+         models=[
+             'scifight.Tournament']),
+    dict(app='scifight',
          label='Tournament preparation',
          models=[
              'scifight.Team',
@@ -102,6 +106,7 @@ ADMIN_REORDER = ('sites',
              'scifight.Leader',
              'scifight.Room',
              'scifight.Problem',
+             'scifight.Jury',
              'scifight.LeaderToJury',
              'scifight.TeamOrigin',
              'scifight.CommonOrigin']),
