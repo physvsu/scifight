@@ -161,6 +161,10 @@ class JuryAdmin(admin.ModelAdmin):
     _origin_name.admin_order_field = 'origin__name'
 
 
+@admin.register(models.Tournament)
+class TournamentAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(models.CommonOrigin)
 class CommonOriginAdmin(admin.ModelAdmin):
     pass
